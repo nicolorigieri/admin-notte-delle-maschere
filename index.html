@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Admin - Notte delle Maschere</title>
+<meta name="robots" content="noindex, nofollow" />
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<main>
+  <header>
+    <p class="eyebrow">Solo organizzatori</p>
+    <h1>Notte delle Maschere</h1>
+    <p class="subtitle">Pannello di gestione</p>
+  </header>
+
+  <section id="login-panel">
+    <label for="pin-input">PIN organizzatore</label>
+    <input id="pin-input" type="password" inputmode="numeric" autocomplete="off" />
+    <button id="login-button" class="button button-dark" type="button">Entra</button>
+    <p id="login-message" class="message" role="status"></p>
+  </section>
+
+  <section id="admin-panel" hidden>
+    <div class="status-row">
+      <span id="status-pill" class="pill">—</span>
+      <button id="logout-button" class="button button-ghost" type="button">Esci</button>
+    </div>
+
+    <div class="card">
+      <h2>Chiusura del voto</h2>
+      <div class="button-row">
+        <button id="close-now" class="button button-dark" type="button">Chiudi ora</button>
+        <button id="reopen" class="button button-ghost" type="button">Riapri il voto</button>
+      </div>
+      <label for="closes-at-input">Chiusura automatica (data e ora)</label>
+      <input id="closes-at-input" type="datetime-local" />
+      <div class="button-row">
+        <button id="set-timer" class="button button-dark" type="button">Imposta orario</button>
+        <button id="clear-timer" class="button button-ghost" type="button">Rimuovi orario</button>
+      </div>
+      <p id="settings-message" class="message" role="status"></p>
+    </div>
+
+    <div class="card">
+      <div class="card-header-row">
+        <h2>Classifica in diretta</h2>
+        <span id="entrant-count">0 iscritti</span>
+      </div>
+      <p class="hint">Da qui elimini le iscrizioni di prova o azzeri i voti di un costume. Le modifiche si vedono anche sul sito degli ospiti.</p>
+      <ul id="contestant-list"></ul>
+    </div>
+  </section>
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+<script src="config.js"></script>
+<script src="admin.js"></script>
+</body>
+</html>
